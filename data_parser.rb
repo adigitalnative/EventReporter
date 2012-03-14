@@ -6,10 +6,15 @@ module EventReporter
     def self.load(filename)
       "Loading the data from #{filename[0]}"
       @data = CSV.open(filename[0], :headers => true, :header_converters => :symbol)
+      data_to_queue(@data)
 
       # @data.each do |line|
       #   puts [line[:first_name]]
       # end
+    end
+
+    def data_to_queue(data)
+      data = queue
     end
 
     def self.valid_parameters?(parameters)

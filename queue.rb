@@ -2,6 +2,8 @@ module EventReporter
   class Queue
     def call(params)
       "Running Queue sub-function #{params[0]}"
+      if params[0] == "count"
+        c
     end
 
     def self.valid_parameters?(parameters)
