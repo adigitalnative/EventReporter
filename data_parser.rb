@@ -13,15 +13,19 @@ module EventReporter
     end
 
     def self.get_attendees
-      @attendees = []
+      if @attendees == nil
+        @attendees = []
 
-      @data.each do |line|
-        # TODO: Pull the full range of data.
-        # TODO: Clean data.
-        attendee = [line[:first_name], line[:last_name], line[:homephone]]
-        @attendees << attendee
+        @data.each do |line|
+          # TODO: Pull the full range of data.
+          # TODO: Clean data.
+          attendee = [line[:first_name], line[:last_name], line[:homephone]]
+          @attendees << attendee
+        end
+        @attendees.inspect
+      else
+        @attendees
       end
-      @attendees
     end
 
     def self.valid_parameters?(parameters)
