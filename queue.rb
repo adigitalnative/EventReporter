@@ -1,9 +1,7 @@
 module EventReporter
   class Queue
     def call(params)
-      log "Starting the Queue#call"
       "Running Queue sub-function #{params[0]}"
-      log "Finished the Queue#call"
     end
 
     def self.valid_parameters?(parameters)

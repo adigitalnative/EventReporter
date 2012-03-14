@@ -1,16 +1,16 @@
 require './command'
 require 'logger'
 
-module Kernel
-  def log(message)
-    if $logger.nil?
-      warn "Opening a log file"
-      $logger = Logger.new("dev.log")
-    end
+# module Kernel
+#   def log(message)
+#     if $logger.nil?
+#       warn "Opening a log file"
+#       $logger = Logger.new("dev.log")
+#     end
     
-    $logger.info(message)
-  end
-end
+#     $logger.info(message)
+#   end
+# end
 
 
 module EventReporter
@@ -31,10 +31,10 @@ module EventReporter
       results = ""
 
       while results
-        log "Executing a command from CLI.run"
+        # log "Executing a command from CLI.run"
         results = execute_command(prompt_user)
         puts results if results
-        log "Finished a command from CLI.run"
+        # log "Finished a command from CLI.run"
       end
 
       puts "Goodbye!"
