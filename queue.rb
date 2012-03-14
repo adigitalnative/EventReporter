@@ -3,7 +3,11 @@ require './data_parser'
 module EventReporter
   class Queue
     def call(params)
-      "Running Queue sub-function #{params[0]}"
+      if params[0] == "count"
+        "#{DataParser.get_attendees.count}"
+      else
+        "I don't know #{params[0]} yet."
+      end
     end
 
     def self.valid_parameters?(parameters)
