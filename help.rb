@@ -1,9 +1,8 @@
 module EventReporter
   class Help
-    
+
     def self.for(parameters)
       parameters = parameters.join(" ")
-      "Here's help for #{parameters}"
       "#{parameters}: #{Command.get_commands[parameters]}."
     end
 

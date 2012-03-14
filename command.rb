@@ -6,7 +6,7 @@ require './search'
 module EventReporter
   class Command
     ALL_COMMANDS = {"load" => "loads a new file",
-                    "help" => "shows a list of available commands",
+                    "help" => "Help is available for 'load', 'help', 'queue', 'queue count', 'queue clear', 'queue print', 'queue print by', 'queue save to ' and 'find'",
                     "queue" => "a set of data",
                     "queue count" => "total items in the queue",
                     "queue clear" => "empties the queue",
