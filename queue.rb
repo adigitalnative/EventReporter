@@ -1,3 +1,5 @@
+require './data_parser'
+
 module EventReporter
   class Queue
     def call(params)

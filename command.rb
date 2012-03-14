@@ -2,6 +2,7 @@ require './data_parser'
 require './help'
 require './queue'
 require './search'
+require 'ap'
 
 module EventReporter
   class Command
