@@ -20,6 +20,13 @@ module EventReporter
     end
 
     def self.execute(command, parameters)
+      # case command
+      #   when "load" then DataParser.load(parameters)
+      #   when "queue" then Queue.new.call(parameters)
+      #   else "None of the above"
+      # end
+
+
       if command == "load" && DataParser.valid_parameters?(parameters)
         DataParser.load(parameters)
       elsif command == "queue" && Queue.valid_parameters?(parameters)

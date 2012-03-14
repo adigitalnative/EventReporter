@@ -1,7 +1,7 @@
 module EventReporter
   class DataParser
     def self.load(filename)
-      puts "Loading the data from #{filename}!"
+      "Loading the data from #{filename}!"
     end
 
     def self.valid_parameters?(parameters)
