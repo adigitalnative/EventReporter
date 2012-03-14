@@ -15,8 +15,12 @@ module EventReporter
                     "queue save to" => "exports queue to a CSV",
                     "find" => "load the queue with matching records"}
 
+    def self.get_commands
+      ALL_COMMANDS
+    end
+
     def self.valid?(command)
-      ALL_COMMANDS.keys.include?(command)
+      get_commands.keys.include?(command)
     end
 
     def self.execute(command, parameters)
