@@ -5,6 +5,9 @@ module EventReporter
     def call(params)
       if params[0] == "count"
         "#{DataParser.get_attendees.count}"
+      elsif params[0] == "clear"
+        DataParser.clear_attendees
+        "List of attendees cleared."
       else
         "I don't know #{params[0]} yet."
       end

@@ -22,10 +22,14 @@ module EventReporter
           attendee = [line[:first_name], line[:last_name], line[:homephone]]
           @attendees << attendee
         end
-        @attendees.inspect
+        @attendees
       else
         @attendees
       end
+    end
+
+    def self.clear_attendees
+      @attendees = nil
     end
 
     def self.valid_parameters?(parameters)
