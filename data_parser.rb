@@ -7,7 +7,6 @@ module EventReporter
 
 
     def self.load(filename)
-      "Loading the data from #{filename[0]}"
       @data = CSV.open(filename[0], :headers => true, :header_converters => :symbol)
       get_attendees
     end
