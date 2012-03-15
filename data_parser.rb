@@ -11,6 +11,7 @@ module EventReporter
       @data = []
       @data = CSV.open(filename[0], :headers => true, :header_converters => :symbol)
       get_attendees
+      "Loaded #{@attendees.count} attendees."
     end
 
     def self.get_attendees
@@ -22,16 +23,14 @@ module EventReporter
                       "firstname" => line[:first_name],
                       "email" => line[:email_address],
                       "zip" => Cleaner.clean_zipcode(line[:zipcode]),
-                      "phone" => Cleaner.clean_phone_number(line[:homephone]),
                       "city" => line[:city],
                       "state" => line[:state],
-                      "address" => line[:street]}
+                      "address" => line[:street],
+                      "phone" => Cleaner.clean_phone_number(line[:homephone])}
           @attendees << attendee
         end
-        @attendees
-      else
-        @attendees
       end
+      @attendees
     end
 
     def self.load_default(filename)
@@ -39,6 +38,7 @@ module EventReporter
       @data = []
       @data = CSV.open(filename, :headers => true, :header_converters => :symbol)
       get_attendees
+      "Loaded #{@attendees.count} attendees."
     end
 
     def self.clear_attendees

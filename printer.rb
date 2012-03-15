@@ -5,25 +5,14 @@ module EventReporter
 
     def self.print_table(params)
       #Print the array
-      @attendees = DataParser.get_attendees
+      attendees = DataParser.get_attendees
 
-      "LAST NAME\tFIRST NAME\tEMAIL\tZIPCODE\tCITY\tSTATE\tADDRESS"
 
-      # @attendees.each do |attendee|
-      #   "Foo"
-      # end
-
-      # attendees.each do |attendee|
-      #   "#{attendee.lastname}"
-      # end
-
-      # attendees.each do |key, information|
-      #   "#{attendees[lastname]}"
-      # end
-
-      # attendees.each do |attendee|
-      #   "#{attendee[0]}"
-      # end
+      "LAST NAME\tFIRST NAME\tEMAIL\tZIPCODE\tCITY\tSTATE\tADDRESS\tPHONE"
+      
+      attendees.each do |attendee|
+        puts "#{attendee} BANG!"
+      end
     end
 
   end
