@@ -18,14 +18,14 @@ module EventReporter
         @attendees = []
 
         @data.each do |line|
-          attendee = [line[:last_name],
-                      line[:first_name],
-                      line[:email_address],
-                      Cleaner.clean_zipcode(line[:zipcode]),
-                      Cleaner.clean_phone_number(line[:homephone]),
-                      line[:city],
-                      line[:state],
-                      line[:street]]
+          attendee = {"lastname" => line[:last_name],
+                      "firstname" => line[:first_name],
+                      "email" => line[:email_address],
+                      "zip" => Cleaner.clean_zipcode(line[:zipcode]),
+                      "phone" => Cleaner.clean_phone_number(line[:homephone]),
+                      "city" => line[:city],
+                      "state" => line[:state],
+                      "address" => line[:street]}
           @attendees << attendee
         end
         @attendees
