@@ -1,4 +1,5 @@
 require 'csv'
+require './cleaner'
 
 module EventReporter
   class DataParser
@@ -16,9 +17,15 @@ module EventReporter
         @attendees = []
 
         @data.each do |line|
-          # TODO: Pull the full range of data.
           # TODO: Clean data.
-          attendee = [line[:first_name], line[:last_name], line[:homephone]]
+          attendee = [line[:last_name],
+                      line[:first_name],
+                      line[:email_address],
+                      Cleaner.clean_zipcode(line[:zipcode]),
+                      Cleaner.clean_phone_number(line[:homephone]),
+                      line[:city],
+                      line[:state],
+                      line[:street]]
           @attendees << attendee
         end
         @attendees
@@ -29,6 +36,18 @@ module EventReporter
 
     def self.clear_attendees
       @attendees = nil
+    end
+
+    # def self.output_data(params)
+    #   output = File.new(params[2], "w")
+    #     @attendees.each do |line|
+    #       output << [line[0], line[1], line[2]]
+    #     end
+    #   output.close
+    # end
+
+    def self.find(param)
+      "Searching for #{param}"
     end
 
     def self.valid_parameters?(parameters)
