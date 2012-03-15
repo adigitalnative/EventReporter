@@ -1,12 +1,14 @@
-DONE (parsed):
+DONE (ish):
   load <filename>
   queue count
-  queue clear
+  queue clear       
+  help
+  help <command>
+
+IN PROG
   queue print
   queue print by <attribute>
   queue save to <filename.csv>
-  help
-  help <command>
   find <attribute> <criteria>
 
 Generic Form
@@ -18,3 +20,9 @@ load event_attendees.csv
 help
 help load
 help queue'
+
+
+FIX/TO DO LIST
+  • Can't load a file after 'queue count' is called. Likely a problem in what count returns.
+  • Queue print is in progress. Will currently return the full array, but not in table form yet.
+  • Started playing/futzing with search. Not there yet.

@@ -8,6 +8,7 @@ module EventReporter
 
 
     def self.load(filename)
+      @data = []
       @data = CSV.open(filename[0], :headers => true, :header_converters => :symbol)
       get_attendees
     end
@@ -17,7 +18,6 @@ module EventReporter
         @attendees = []
 
         @data.each do |line|
-          # TODO: Clean data.
           attendee = [line[:last_name],
                       line[:first_name],
                       line[:email_address],

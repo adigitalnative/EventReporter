@@ -1,4 +1,5 @@
 require './data_parser'
+require './printer'
 
 module EventReporter
   class Queue
@@ -8,9 +9,8 @@ module EventReporter
       elsif params[0] == "clear"
         DataParser.clear_attendees
         "List of attendees cleared."
-      # elsif params[0] == "print"
-      #   # DataParser.output_data(params)
-      #   "Let me put that in a file for you."
+      elsif params[0] == "print"
+        Printer.print_table(params)
       else
         "I don't know #{params[0]} yet."
       end
