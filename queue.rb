@@ -8,7 +8,7 @@ module EventReporter
 
     def call(params)
       if params[0] == "count"
-        "#{DataParser.get_attendees.count}"
+        "#{Search.queue.count}"
       elsif params[0] == "clear"
         DataParser.clear_attendees
         "List of attendees cleared."

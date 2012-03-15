@@ -4,7 +4,7 @@ module EventReporter
   class Printer
 
     def self.print_table(params)
-      attendees = DataParser.get_attendees
+      attendees = Search.queue
 
       puts "LAST NAME\tFIRST NAME\tEMAIL\tZIPCODE\tCITY\tSTATE\tADDRESS\tPHONE"
 
