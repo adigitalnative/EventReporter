@@ -10,7 +10,7 @@ module EventReporter
       if params[0] == "count"
         "#{Search.queue.count}"
       elsif params[0] == "clear"
-        DataParser.clear_attendees
+        Search.clear_attendees
         "List of attendees cleared."
       elsif params[0] == "print"
         if params[1] == nil
