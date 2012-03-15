@@ -34,6 +34,8 @@ module EventReporter
 
       if command == "load" && DataParser.valid_parameters?(parameters)
         DataParser.load(parameters)
+      elsif command == "load"
+        DataParser.load_default(parameters)
       elsif command == "queue" && Queue.valid_parameters?(parameters)
         Queue.new.call(parameters)
       elsif command == "help" && Help.valid_parameters?(parameters)

@@ -1,7 +1,8 @@
 DONE (ish):
   load <filename>
+  load
   queue count
-  queue clear       
+  queue clear
   help
   help <command>
 

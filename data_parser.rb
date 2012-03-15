@@ -34,6 +34,13 @@ module EventReporter
       end
     end
 
+    def self.load_default(filename)
+      filename = "event_attendees.csv"
+      @data = []
+      @data = CSV.open(filename, :headers => true, :header_converters => :symbol)
+      get_attendees
+    end
+
     def self.clear_attendees
       @attendees = nil
     end
@@ -51,6 +58,7 @@ module EventReporter
     end
 
     def self.valid_parameters?(parameters)
+
       parameters.count == 1 && parameters[0] =~ /\.csv$/
     end
   end
