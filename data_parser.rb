@@ -27,8 +27,8 @@ module EventReporter
         @attendees = []
 
         @data.each do |line|
-          attendee = {"lastname" => line[:last_name],
-                      "firstname" => line[:first_name],
+          attendee = {"last_name" => line[:last_name],
+                      "first_name" => line[:first_name],
                       "email" => line[:email_address],
                       "zip" => Cleaner.clean_zipcode(line[:zipcode]),
                       "city" => line[:city],

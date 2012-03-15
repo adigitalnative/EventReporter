@@ -10,7 +10,11 @@ module EventReporter
         DataParser.clear_attendees
         "List of attendees cleared."
       elsif params[0] == "print"
-        Printer.print_table(params)
+        if params[1] == nil
+          Printer.print_table(params)
+        else
+          Printer.sort_table(params[2])
+        end
       else
         "I don't know #{params[0]} yet."
       end

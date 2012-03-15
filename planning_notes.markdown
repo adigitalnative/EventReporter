@@ -5,9 +5,9 @@ DONE (ish):
   queue clear
   help
   help <command>
+  queue print
 
 IN PROG
-  queue print
   queue print by <attribute>
   queue save to <filename.csv>
   find <attribute> <criteria>
