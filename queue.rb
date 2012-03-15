@@ -3,6 +3,9 @@ require './printer'
 
 module EventReporter
   class Queue
+
+    @queue = []
+
     def call(params)
       if params[0] == "count"
         "#{DataParser.get_attendees.count}"
@@ -18,6 +21,7 @@ module EventReporter
       else
         "I don't know #{params[0]} yet."
       end
+
     end
 
     def self.valid_parameters?(parameters)

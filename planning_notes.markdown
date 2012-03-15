@@ -25,5 +25,5 @@ help queue'
 
 FIX/TO DO LIST
   • Can't load a file after 'queue count' is called. Likely a problem in what count returns.
-  • Queue print is in progress. Will currently return the full array, but not in table form yet.
+  • Fix queue = is actually two queues
   • Started playing/futzing with search. Not there yet.
