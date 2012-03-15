@@ -14,6 +14,14 @@ module EventReporter
       "Loaded #{@attendees.count} attendees."
     end
 
+    def self.load_default(filename)
+      filename = "event_attendees.csv"
+      @data = []
+      @data = CSV.open(filename, :headers => true, :header_converters => :symbol)
+      get_attendees
+      "Loaded #{@attendees.count} attendees."
+    end
+
     def self.get_attendees
       if @attendees == nil
         @attendees = []
@@ -31,14 +39,6 @@ module EventReporter
         end
       end
       @attendees
-    end
-
-    def self.load_default(filename)
-      filename = "event_attendees.csv"
-      @data = []
-      @data = CSV.open(filename, :headers => true, :header_converters => :symbol)
-      get_attendees
-      "Loaded #{@attendees.count} attendees."
     end
 
     def self.clear_attendees
