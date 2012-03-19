@@ -6,11 +6,12 @@ module EventReporter
     @queue = []
 
     def self.for(parameters)
+      @queue = []
 
       @attendees = DataParser.get_attendees
 
       @attendees.each do |attendee|
-        if attendee[parameters[0]].include?(parameters[1])
+        if attendee[parameters[0]] == (parameters[1..-1].join(" "))
           @queue << attendee
         end
       end
