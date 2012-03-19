@@ -18,6 +18,8 @@ module EventReporter
         else
           Printer.sort_table(params[2])
         end
+      elsif params[0] == "save"
+        Search.save(params[2])
       else
         "I don't know #{params[0]} yet."
       end
@@ -35,5 +37,7 @@ module EventReporter
         true
       end
     end
+
+
   end
 end

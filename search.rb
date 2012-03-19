@@ -1,5 +1,6 @@
 require './data_parser'
 require './printer'
+require 'csv'
 
 module EventReporter
   class Search
@@ -32,6 +33,24 @@ module EventReporter
       # TODO: check that attribute is actually valid
       # parameters.count == 2
       true
+    end
+
+    def self.save(filename)
+      "Saving to #{filename}"
+
+      CSV.open(filename, "w") do |output|
+
+        output << ["lastname", "firstname", "email", "zipcode", "city", "state", "address", "phone"]
+
+        @queue.each do |attendee|
+          output << make_array(attendee)
+        end
+
+      end
+    end
+
+    def self.make_array(attendee)
+      [attendee["last_name"], attendee["first_name"], attendee["email"], attendee["zipcode"], attendee["city"], attendee["state"], attendee["address"], attendee["phone"]]
     end
 
   end
