@@ -11,7 +11,6 @@ module EventReporter
       attendees.each do |attendee|
         puts "#{attendee["last_name"]}\t#{attendee["first_name"]}\t#{attendee["email"]}\t#{attendee["zipcode"]}\t#{attendee["city"]}\t#{attendee["state"]}\t#{attendee["address"]}\t#{attendee["phone"]}\t"
       end
-      true
     end
 
     def self.sort_table(params)
@@ -25,7 +24,6 @@ module EventReporter
       attendees.each do |attendee|
         puts "#{attendee["last_name"]}\t#{attendee["first_name"]}\t#{attendee["email"]}\t#{attendee["zipcode"]}\t#{attendee["city"]}\t#{attendee["state"]}\t#{attendee["address"]}\t#{attendee["phone"]}\t"
       end
-      true
     end
 
     def self.print(attendees)
@@ -35,7 +33,6 @@ module EventReporter
       attendees.each do |attendee|
         puts "#{attendee["last_name"]}\t#{attendee["first_name"]}\t#{attendee["email"]}\t#{attendee["zipcode"]}\t#{attendee["city"]}\t#{attendee["state"]}\t#{attendee["address"]}\t#{attendee["phone"]}\t"
       end
-      true
     end
 
   end
