@@ -16,7 +16,7 @@ module EventReporter
         end
       end
 
-      "There are #{@queue.size} attendees whose #{parameters[0]} is #{parameters[1]}."
+      "There are #{@queue.size} attendees whose #{parameters[0]} is #{parameters[1..-1].join(" ")}."
       # "I have loaded all attendees whose #{parameters[0]} is #{parameters[1]}."
     end
 
@@ -30,7 +30,8 @@ module EventReporter
 
     def self.valid_parameters?(parameters)
       # TODO: check that attribute is actually valid
-      parameters.count == 2
+      # parameters.count == 2
+      true
     end
 
   end
