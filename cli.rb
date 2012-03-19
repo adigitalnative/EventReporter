@@ -31,10 +31,8 @@ module EventReporter
       results = ""
 
       while results
-        # log "Executing a command from CLI.run"
         results = execute_command(prompt_user)
         puts results if results
-        # log "Finished a command from CLI.run"
       end
 
       puts "Goodbye!"

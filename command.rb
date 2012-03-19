@@ -7,7 +7,7 @@ require 'ap'
 module EventReporter
   class Command
     ALL_COMMANDS = {"load" => "loads a new file",
-                    "help" => "Help is available for 'load', 'help', 'queue', 'queue count', 'queue clear', 'queue print', 'queue print by', 'queue save to ' and 'find'",
+                    "help" => "You can load, queue, queue count, queue clear, queue print, queue print by, and find.",
                     "queue" => "a set of data",
                     "queue count" => "total items in the queue",
                     "queue clear" => "empties the queue",
@@ -25,12 +25,6 @@ module EventReporter
     end
 
     def self.execute(command, parameters)
-      # case command
-      #   when "load" then DataParser.load(parameters)
-      #   when "queue" then Queue.new.call(parameters)
-      #   else "None of the above"
-      # end
-
 
       if command == "load" && DataParser.valid_parameters?(parameters)
         DataParser.load(parameters)
@@ -38,6 +32,8 @@ module EventReporter
         DataParser.load_default(parameters)
       elsif command == "queue" && Queue.valid_parameters?(parameters)
         Queue.new.call(parameters)
+      elsif command == "help" && parameters == []
+        "Possible Commands: load, help, queue, queue count, queue clear, queue print, queue print by, queue save to, find"
       elsif command == "help" && Help.valid_parameters?(parameters)
         Help.for(parameters)
       elsif command == "find" && Search.valid_parameters?(parameters)
