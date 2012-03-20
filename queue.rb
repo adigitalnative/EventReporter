@@ -30,7 +30,8 @@ module EventReporter
       if !%w(count clear print save).include?(parameters[0])
         false
       elsif parameters[0] == "print"
-        parameters.count == 1 || (parameters[1] == "by" && parameters.count == 3 )
+        parameters.count == 1 ||
+          (parameters[1] == "by" && parameters.count == 3)
       elsif parameters[0] == "save"
         parameters[1] == "to" && parameters.count == 3
       else

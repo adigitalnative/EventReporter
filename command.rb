@@ -7,7 +7,7 @@ require 'ap'
 module EventReporter
   class Command
     ALL_COMMANDS = {"load" => "loads a new file",
-                    "help" => "You can load, queue, queue count, queue clear, queue print, queue print by, and find.",
+                    "help" => "Load the helpfile",
                     "queue" => "a set of data",
                     "queue count" => "total items in the queue",
                     "queue clear" => "empties the queue",
@@ -33,7 +33,7 @@ module EventReporter
       elsif command == "queue" && Queue.valid_parameters?(parameters)
         Queue.new.call(parameters)
       elsif command == "help" && parameters == []
-        "Possible Commands: load, help, queue, queue count, queue clear, queue print, queue print by, queue save to, find"
+        "Options are: #{ALL_COMMANDS.keys.join(", ")}."
       elsif command == "help" && Help.valid_parameters?(parameters)
         Help.for(parameters)
       elsif command == "find" && Search.valid_parameters?(parameters)

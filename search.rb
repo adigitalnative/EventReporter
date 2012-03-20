@@ -7,7 +7,7 @@ module EventReporter
     @queue = []
 
     def self.for(parameters)
-      
+
       @queue = []
       @attendees = DataParser.get_attendees
 
@@ -17,7 +17,7 @@ module EventReporter
         end
       end
 
-      "There are #{@queue.size} attendees whose #{parameters[0]} is #{parameters[1..-1].join(" ")}."
+      "#{@queue.size} attendees match your search."
     end
 
     def self.queue
@@ -37,7 +37,8 @@ module EventReporter
 
       CSV.open(filename, "w") do |output|
 
-        output << ["last_Name", "first_Name", "Email_Address", "Zipcode", "City", "State", "Street", "HomePhone"]
+        output << ["last_Name", "first_Name", "Email_Address",
+          "Zipcode", "City", "State", "Street", "HomePhone"]
 
         @queue.each do |attendee|
           output << make_array(attendee)
@@ -49,7 +50,9 @@ module EventReporter
     end
 
     def self.make_array(attendee)
-      [attendee["last_name"], attendee["first_name"], attendee["email"], attendee["zipcode"], attendee["city"], attendee["state"], attendee["address"], attendee["phone"]]
+      [attendee["last_name"], attendee["first_name"],
+        attendee["email"], attendee["zipcode"], attendee["city"],
+        attendee["state"], attendee["address"], attendee["phone"]]
     end
 
   end
