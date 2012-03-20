@@ -18,7 +18,6 @@ module EventReporter
       end
 
       "There are #{@queue.size} attendees whose #{parameters[0]} is #{parameters[1..-1].join(" ")}."
-      # "I have loaded all attendees whose #{parameters[0]} is #{parameters[1]}."
     end
 
     def self.queue
@@ -30,8 +29,6 @@ module EventReporter
     end
 
     def self.valid_parameters?(parameters)
-      # TODO: check that attribute is actually valid
-      # parameters.count == 2
       true
     end
 
@@ -40,11 +37,13 @@ module EventReporter
 
       CSV.open(filename, "w") do |output|
 
-        output << ["lastname", "firstname", "email", "zipcode", "city", "state", "address", "phone"]
+        output << ["last_Name", "first_Name", "Email_Address", "Zipcode", "City", "State", "Street", "HomePhone"]
 
         @queue.each do |attendee|
           output << make_array(attendee)
         end
+
+        "Saved to #{filename}"
 
       end
     end
