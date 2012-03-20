@@ -7,7 +7,7 @@ require 'logger'
 #       warn "Opening a log file"
 #       $logger = Logger.new("dev.log")
 #     end
-    
+
 #     $logger.info(message)
 #   end
 # end

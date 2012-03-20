@@ -7,8 +7,8 @@ module EventReporter
     @queue = []
 
     def self.for(parameters)
+      
       @queue = []
-
       @attendees = DataParser.get_attendees
 
       @attendees.each do |attendee|

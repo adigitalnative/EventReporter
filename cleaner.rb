@@ -26,6 +26,6 @@ module EventReporter
         result = original
       end
     end
-    
+
   end
 end

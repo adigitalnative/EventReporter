@@ -6,7 +6,6 @@ module EventReporter
 
     # attr_accessor {:first_name, :last_name, :homephone, :reg_date, :zipcode,}
 
-
     def self.load(filename)
       @data = []
       @data = CSV.open(filename[0], :headers => true, :header_converters => :symbol)
@@ -26,16 +25,18 @@ module EventReporter
       if @attendees == nil
         @attendees = []
 
-        @data.each do |line|
-          attendee = {"last_name" => line[:last_name],
-                      "first_name" => line[:first_name],
-                      "email" => line[:email_address],
-                      "zip" => Cleaner.clean_zipcode(line[:zipcode]),
-                      "city" => line[:city],
-                      "state" => line[:state],
-                      "address" => line[:street],
-                      "phone" => Cleaner.clean_phone_number(line[:homephone])}
-          @attendees << attendee
+        if @data != nil
+          @data.each do |line|
+            attendee = {"last_name" => line[:last_name],
+                        "first_name" => line[:first_name],
+                        "email" => line[:email_address],
+                        "zip" => Cleaner.clean_zipcode(line[:zipcode]),
+                        "city" => line[:city],
+                        "state" => line[:state],
+                        "address" => line[:street],
+                        "phone" => Cleaner.clean_phone_number(line[:homephone])}
+            @attendees << attendee
+          end
         end
       end
       @attendees
@@ -58,7 +59,6 @@ module EventReporter
     end
 
     def self.valid_parameters?(parameters)
-
       parameters.count == 1 && parameters[0] =~ /\.csv$/
     end
   end
