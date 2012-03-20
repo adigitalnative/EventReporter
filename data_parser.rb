@@ -35,8 +35,7 @@ module EventReporter
               "first_name" => line[:first_name],
               "email" => line[:email_address],
               "zip" => Cleaner.clean_zipcode(line[:zipcode]),
-              "city" => line[:city],
-              "state" => line[:state],
+              "city" => line[:city], "state" => line[:state],
               "address" => line[:street],
               "phone" => Cleaner.clean_phone_number(line[:homephone])}
             @attendees << attendee
@@ -49,14 +48,6 @@ module EventReporter
     def self.clear_attendees
       @attendees = nil
     end
-
-    # def self.output_data(params)
-    #   output = File.new(params[2], "w")
-    #     @attendees.each do |line|
-    #       output << [line[0], line[1], line[2]]
-    #     end
-    #   output.close
-    # end
 
     def self.find(param)
       "Searching for #{param}"
