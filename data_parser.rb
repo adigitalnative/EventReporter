@@ -31,9 +31,9 @@ module EventReporter
 
         if @data != nil
           @data.each do |line|
-            attendee = {"last_name" => line[:last_name],
-              "first_name" => line[:first_name],
-              "email" => line[:email_address],
+            attendee = {"last_name" => Cleaner.clean_line(line[:last_name]),
+              "first_name" => Cleaner.clean_line(line[:first_name]),
+              "email" => Cleaner.clean_line(line[:email_address]),
               "zip" => Cleaner.clean_zipcode(line[:zipcode]),
               "city" => line[:city], "state" => line[:state],
               "address" => line[:street],

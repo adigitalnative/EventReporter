@@ -23,7 +23,7 @@ module EventReporter
 
     def self.prompt_user
       printf "enter command > "
-      gets.strip.split
+      gets.strip.downcase.split
     end
 
     def self.run

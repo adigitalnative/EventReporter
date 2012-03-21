@@ -27,5 +27,9 @@ module EventReporter
       end
     end
 
+    def self.clean_line(line)
+      line.downcase
+    end
+
   end
 end

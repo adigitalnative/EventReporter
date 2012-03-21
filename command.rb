@@ -37,7 +37,7 @@ module EventReporter
       elsif command == "help" && Help.valid_parameters?(parameters)
         Help.for(parameters)
       elsif command == "find" && Search.valid_parameters?(parameters)
-        Search.for(parameters)
+        Search.for(parameters).downcase
       else
         error_message_for(command)
       end
