@@ -7,7 +7,7 @@ require 'logger'
 #       warn "Opening a log file"
 #       $logger = Logger.new("dev.log")
 #     end
-    
+
 #     $logger.info(message)
 #   end
 # end
@@ -23,7 +23,7 @@ module EventReporter
 
     def self.prompt_user
       printf "enter command > "
-      gets.strip.split
+      gets.strip.downcase.split
     end
 
     def self.run
@@ -31,10 +31,8 @@ module EventReporter
       results = ""
 
       while results
-        # log "Executing a command from CLI.run"
         results = execute_command(prompt_user)
         puts results if results
-        # log "Finished a command from CLI.run"
       end
 
       puts "Goodbye!"
