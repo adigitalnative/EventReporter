@@ -35,7 +35,7 @@ module EventReporter
               "first_name" => Cleaner.clean_line(line[:first_name]),
               "email" => Cleaner.clean_line(line[:email_address]),
               "zip" => Cleaner.clean_zipcode(line[:zipcode]),
-              "city" => line[:city], "state" => line[:state],
+              "city" => Cleaner.clean_line(line[:city]), "state" => line[:state],
               "address" => line[:street],
               "phone" => Cleaner.clean_phone_number(line[:homephone])}
             @attendees << attendee
@@ -44,6 +44,12 @@ module EventReporter
       end
       @attendees
     end
+
+    # def has_content?(input)
+    #   input != nil
+    # end
+
+
 
     def self.clear_attendees
       @attendees = nil

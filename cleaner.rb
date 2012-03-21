@@ -28,7 +28,9 @@ module EventReporter
     end
 
     def self.clean_line(line)
-      line.downcase
+      if line != nil
+        line.downcase
+      end
     end
 
   end
